@@ -65,7 +65,7 @@ with col1:
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="Close Price", line=dict(color="#4B0082", width=2)))
     fig.add_trace(go.Scatter(x=data['Date'], y=data['Open'], name="Open Price", line=dict(color="#FFD700", width=2)))
-    fig.layout.update(
+    fig.update_layout(
         title_text=f"{ticker} Stock Price Odyssey", 
         xaxis_rangeslider_visible=True,
         plot_bgcolor="rgba(0,0,0,0)",
@@ -100,7 +100,7 @@ fig_ma = go.Figure()
 fig_ma.add_trace(go.Scatter(x=data['Date'], y=data['Close'], name="Close Price", line=dict(color="#4B0082", width=2)))
 fig_ma.add_trace(go.Scatter(x=data['Date'], y=data['MA50'], name="50-day MA", line=dict(color="#FFD700", width=2)))
 fig_ma.add_trace(go.Scatter(x=data['Date'], y=data['MA200'], name="200-day MA", line=dict(color="#00CED1", width=2)))
-fig_ma.layout.update(
+fig_ma.update_layout(
     title_text=f"{ticker} Price with Trend Lines", 
     xaxis_rangeslider_visible=True,
     plot_bgcolor="rgba(0,0,0,0)",
@@ -118,7 +118,7 @@ fig_candle = go.Figure(data=[go.Candlestick(x=data['Date'],
                 high=data['High'],
                 low=data['Low'],
                 close=data['Close'])])
-fig_candle.layout.update(
+fig_candle.update_layout(
     title_text=f"{ticker} Candlestick Chart", 
     xaxis_rangeslider_visible=True,
     plot_bgcolor="rgba(0,0,0,0)",
@@ -148,7 +148,7 @@ st.plotly_chart(fig_heatmap, use_container_width=True)
 st.subheader("📊 Volume Ventures")
 fig_volume = go.Figure()
 fig_volume.add_trace(go.Bar(x=data['Date'], y=data['Volume'], name="Volume", marker_color="#4B0082"))
-fig_volume.layout.update(
+fig_volume.update_layout(
     title_text=f"{ticker} Trading Volume Over Time", 
     xaxis_rangeslider_visible=True,
     plot_bgcolor="rgba(0,0,0,0)",
